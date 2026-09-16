@@ -57,6 +57,17 @@ The repository includes browser-ready geometry. Rebuilding it is optional: obtai
 
 Import this repository into Vercel as a Vite project. The included `vercel.json` configures `npm ci`, `npm run build`, and the `dist` output directory. It can also be served by a static host.
 
+### Chinese build at akiai.cn/atlas/
+
+The Chinese localization is served at <https://akiai.cn/atlas/>. The site is static, so it lives in the `atlas` directory of the existing Caddy site root (`/var/www/akiai/atlas`) on the Tencent Cloud server and needs no extra server configuration.
+
+```sh
+npm run build:atlas     # APP_BASE=/atlas/ vite build
+scripts/deploy-akiai.sh # build, sync dist/ to the server, verify the live URLs
+```
+
+Paths in `public/models/atlas.json` stay root-absolute; `assetPath()` rebases them onto `import.meta.env.BASE_URL` at runtime, so the same data file works both at the domain root and under a subpath.
+
 ## License
 
 Original application code is released under the [MIT License](LICENSE). **The anatomy data has its own CC BY 4.0 license**; preserve the attribution when redistributing it. Third-party dependencies retain their respective licenses.

@@ -1,3 +1,8 @@
+/** Atlas asset paths are stored root-absolute so the same data works at any base path. */
+export function assetPath(path:string):string{
+ return path.startsWith('/')?`${import.meta.env.BASE_URL}${path.slice(1)}`:path;
+}
+
 /** Static hosts may serve .gz as a compressed response or as a gzip file.
  * Fetch already decodes Content-Encoding; inspect the payload to avoid decoding twice.
  */

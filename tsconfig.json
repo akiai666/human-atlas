@@ -15,6 +15,7 @@
     "moduleResolution": "bundler",
     "types": [
       "node",
+      "vite/client",
       "@cloudflare/workers-types",
       "vinext/types"
     ],

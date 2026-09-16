@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 3016",
     "build": "vite build",
+    "build:atlas": "APP_BASE=/atlas/ vite build",
     "build:vercel": "vite build",
     "check": "tsc --noEmit"
   },
